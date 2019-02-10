@@ -12,7 +12,9 @@
 |domicile_city|string|null: false|
 |domicile_add|string|null: false|
 |building|string| |
-|birthday|date|null: false|
+|birthday_year|integer| |
+|birthday_month|integer| |
+|birthday_day|integer| |
 |phone_number|string|null: false|
 |profile|text| |
 |nickname|string|null: false|

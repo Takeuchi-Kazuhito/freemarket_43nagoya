@@ -7,6 +7,19 @@
   display: block;
   clear: both;
 }
+
+.field_with_errors {
+  display: inline;
+}
+
+.error_msg {
+  margin: 8px 0 0;
+  color: #ea352d;
+  li {
+    margin: 8px 0 0;
+  }
+}
+
 .user-info {
   float: right;
   display: block;
@@ -42,10 +55,27 @@
           line-height: 1.5;
         }
         &-group {
+          .field_with_errors {
+            input {
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ea352d;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+          }
           margin: 40px 0 0;
+          p {
+            margin: 8px 0 0;
+            color: #ea352d;
+          }
           &:first-child {
             margin: 0;
-        }
+          }
         &-text{
           margin: 8px 0 0;
           line-height: 1.5;
@@ -55,7 +85,6 @@
           width:140px;
           margin-top:8px;
           display: inline-block;
-
           &-select{
             position: relative;
             z-index: 2;
@@ -130,6 +159,7 @@
             vertical-align: top;
           }
         }
+
         &-submit {
           margin: 40px 0 0;
           background: #ea352d;

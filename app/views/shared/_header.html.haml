@@ -7,85 +7,61 @@
       %input.search-form{type: "search", name: "keyword", placeholder: "キーワードから探す"}
       / = form_for [] do |f|
       /   = f.text_field :product, class: "search-form", placeholder: "何をお探しですか?"
-      %i.fa.fa-search
+      = fa_icon "search"
     .main-header__nav-box
       %nav.left-box
-        %ul.login-nav
-          %li
-            %a.category{href: ""}
-              カテゴリから探す
-              %ul.category
-                %li
-                  %a{href: ""}
-                    レディース
-                %li
-                  %a{href: ""}
-                    メンズ
-                %li
-                  %a{href: ""}
-                    ベビー・キッズ
-                %li
-                  %a{href: ""}
-                    インテリア・住まい・小物
-                %li
-                  %a{href: ""}
-                    本・音楽・ゲーム
-                %li
-                  %a{href: ""}
-                    おもちゃ・ホビー・グッズ
-                %li
-                  %a{href: ""}
-                    コスメ・香水・美容
-                %li
-                  %a{href: ""}
-                    家電・スマホ・カメラ
-                %li
-                  %a{href: ""}
-                    スポーツ・レジャー
-                %li
-                  %a{href: ""}
-                    ハンドメイド
-                %li
-                  %a{href: ""}
-                    チケット
-                %li
-                  %a{href: ""}
-                    自転車・オートバイ
-                %li
-                  %a{href: ""}
-                    その他
-                %li
-                  %a{href: ""}
-                    カテゴリー一覧
+        %ul.search-box
+          %li.list-nav
+            = link_to "カテゴリから探す", "#", class: "category"
+            %ul.category
+              %li.list
+                = link_to "レディース"
+              %li.list
+                = link_to "メンズ"
+              %li.list
+                = link_to "ベビー・キッズ"
+              %li.list
+                = link_to "インテリア・住まい・小物"
+              %li.list
+                = link_to "本・音楽・ゲーム"
+              %li.list
+                = link_to "おもちゃ・ホビー・グッズ"
+              %li.list
+                = link_to "コスメ・香水・美容"
+              %li.list
+                = link_to "家電・スマホ・カメラ"
+              %li.list
+                = link_to "スポーツ・レジャー"
+              %li.list
+                = link_to "ハンドメイド"
+              %li.list
+                = link_to "チケット"
+              %li.list
+                = link_to "自転車・オートバイ"
+              %li.list
+                = link_to "その他"
+              %li.list
+                = link_to "カテゴリー一覧"
 
-          %li
-            %a.brand{href: ""}
-              ブランドから探す
-              %ul.brand
-                %li
-                  %a{href: ""}
-                    シャネル
-                %li
-                  %a{href: ""}
-                    ナイキ
-                %li
-                  %a{href: ""}
-                    ルイヴィトン
-                %li
-                  %a{href: ""}
-                    シュプリーム
-                %li
-                  %a{href: ""}
-                    アディダス
-                %li
-                  %a{href: ""}
-                    ブランド一覧
+          %li.list-nav
+            = link_to "ブランドから探す", "#", class: "brand"
+            %ul.brand
+              %li.list
+                = link_to "シャネル"
+              %li.list
+                = link_to "ナイキ"
+              %li.list
+                = link_to "ルイヴィトン"
+              %li.list
+                = link_to "シュプリーム"
+              %li.list
+                = link_to "アディダス"
+              %li.list
+                = link_to "ブランド一覧"
 
       %nav.right-box
         %ul.header-nav
           %li
-            %a.main-header__btn{href: ""}
-              ログイン
+            = link_to "ログイン", "#", class: "main-header__btn"
           %li
-            %a.main-header__signup{href: ""}
-              新規会員登録
+            = link_to "新規会員登録", "#", class: "main-header__signup"

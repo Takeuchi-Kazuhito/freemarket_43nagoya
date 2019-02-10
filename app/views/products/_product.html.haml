@@ -1,0 +1,14 @@
+%section.item-exhibitor__item-box-content--box
+  = link_to product_path(product) do
+    = image_tag "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"
+    .item-exhibitor__item-box-content--box-body
+      %h3
+        = product.name
+      .item-exhibitor__item-box-content--box-body-bottom.clearfix
+        .item-exhibitor__item-box-content--box-body-bottom-price
+          = price_format(product.price)
+        .item-exhibitor__item-box-content--box-body-bottom-like
+          %i
+          / アイコンを追加すること
+          %span
+        %p (税込)

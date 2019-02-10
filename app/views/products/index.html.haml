@@ -24,91 +24,9 @@
         %h2
           商品一覧
         .item
-          %a.item__link{href: ""}
-            新着アイテム
+          = link_to "新着アイテム", list_products_path, class: "item__link"
         .item-exhibitor__item-box-content.clearfix
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-        %a.all-item-link{href: ""}
-          すべての商品を見る
-        .item-exhibitor__item-box-content.clearfix
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-          %section.item-exhibitor__item-box-content--box
-            %a{:href => "#"}
-              %img{:alt => "", :src => "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"}/
-              .item-exhibitor__item-box-content--box-body
-                %h3 ネットdeきれい＊セーター・ジャケット用
-                .item-exhibitor__item-box-content--box-body-bottom.clearfix
-                  .item-exhibitor__item-box-content--box-body-bottom-price
-                    ¥ 999
-                  .item-exhibitor__item-box-content--box-body-bottom-like
-                    %i
-                    / アイコンを追加すること
-                    %span
-                  %p (税込)
-        %a.all-item-link{href: ""}
-          すべての商品を見る
+          = render @products
+          = link_to "すべての商品を見る", list_products_path, class: "all-item-link"
 
 = render "/shared/footer"

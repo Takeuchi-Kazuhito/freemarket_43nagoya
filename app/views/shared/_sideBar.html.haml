@@ -53,23 +53,30 @@
   %h3.myPage__sideBar__setting 設定
   %ul.myPage__sideBar__settingLists
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events.myPage__sideBar__myList--profile
-      プロフィール
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to "/users/#{@user.id}/profile/edit" do
+        プロフィール
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      住所変更
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to "#" do
+        住所変更
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      支払い方法
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to "#" do
+        支払い方法
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      メール/パスワード
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to "#" do
+        メール/パスワード
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      本人情報
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to edit_user_identification_path(@user.id) do
+        本人情報
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      電話番号の確認
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to "#" do
+        電話番号の確認
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
     %li.myPage__sideBar__settingList.myPage__sideBar__myList--events
-      ログアウト
-      = fa_icon("chevron-right",class: "chevron-right sideBar-icon")
+      = link_to user_logout_path(@user.id) do
+        ログアウト
+        = fa_icon("chevron-right",class: "chevron-right sideBar-icon")

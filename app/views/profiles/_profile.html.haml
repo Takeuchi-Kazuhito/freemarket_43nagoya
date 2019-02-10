@@ -1,0 +1,11 @@
+.profile
+  %h2.profile__heading プロフィール
+  = form_for @user, url: { controller: :profiles, action: :update } do |f|
+    .profile__header
+      .profile__header__userImage
+      = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: "profile__header__userName"
+      - if @user.errors.any?
+        %p 入力してください
+    .profile__content
+      = f.text_area :profile, placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "profile__content__textarea"
+      = f.submit '変更する', class: "profile__content__bottun"

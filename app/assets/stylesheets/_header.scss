@@ -1,9 +1,8 @@
 .main-header {
   height: 140px;
   width: 100%;
-  background-color: #fff;
+  background-color: $white;
   position: relative;
-
   &__inner {
     padding: 8px 0 0;
     height: 90px;
@@ -17,7 +16,6 @@ h1.l-left {
   width: 135px;
   height: 39px;
   float: left;
-
   img {
     width: 135px;
     height: 40px;
@@ -29,10 +27,8 @@ form.search-box {
   width: calc(100% - 150px);
   position: relative;
   float: right;
-
   input.search-form {
-    background-color: #fafafa;
-    border: 1px solid #ccc;
+    border: 1px solid $lightGray;
     border-radius: 2px;
     height: 38px;
     width: calc(100% - 20px);
@@ -40,7 +36,6 @@ form.search-box {
     padding: 0 10px;
     margin-top: 2px;
   }
-
   i.icon-search {
     position: absolute;
     top: 0;
@@ -52,7 +47,6 @@ form.search-box {
   }
 }
 
-
 ul {
   list-style: none;
 }
@@ -63,65 +57,86 @@ a {
 
 .main-header__nav-box {
   margin: 8px 0 0;
-
-  a.category {
+  nav.left-box {
     float: left;
-    position: relative;
-    right: 15px;
-    bottom: 5px;
-    margin: 12px;
-    color: #333;
-    height: 28px;
-    line-height: 26px;
-    font-size: 14px;
-  }
-  a.category:hover {
-    color: #0099e8;
-  }
-  a.brand {
-    position: relative;
-    margin: 2px;
-    color: #333;
-    height: 38px;
-    line-height: 32px;
-    font-size: 14px;
-  }
-  a.brand:hover {
-    color: #0099e8;
-  }
-
-  ul.category {
-    display: none;
-  }
-  ul.brand {
-    display: none;
+    li.list-nav {
+      padding-right: 16px;
+      position: relative;
+      display: inline-block;
+      a.category {
+        color: $gray;
+        line-height: 40px;
+        font-size: 14px;
+      }
+      a.category:hover {
+        color: $lightBlue;
+      }
+      ul.category {
+        position: absolute;
+        visibility: hidden;
+        z-index:100;
+      }
+      a.brand {
+        color: $gray;
+        line-height: 40px;
+        font-size: 14px;
+      }
+      a.brand:hover {
+        color: $lightBlue;
+      }
+      ul.brand {
+        position: absolute;
+        visibility: hidden;
+        z-index:100;
+      }
+      li.list {
+        padding-left: 16px;
+        background: $white;
+        width: 224px;
+        a {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 40px;
+          color: $gray;
+        }
+      }
+      li.list:hover {
+        background: $red;
+        a {
+          color: $white;
+        }
+      }
+    }
+    li.list-nav:hover {
+      ul.category {
+      visibility: visible;
+      }
+      ul.brand {
+      visibility: visible;
+      }
+    }
   }
   nav.right-box {
     float: right;
-    a.main-header__btn {
-      position: relative;
-      right: 98px;
-      bottom: 28px;
-      padding: 7px;
-      line-height: 30px;
-      border-radius: 4px;
-      text-align: center;
-      background-color: #ea352d;
-      border: 1px solid #ea352d;
-      color: #fff;
+    li {
+      display: inline-block;
+      line-height: 36px;
       font-size: 14px;
-    }
-    a.main-header__signup {
-      position: relative;
-      right: 10px;
-      bottom: 58px;
-      padding: 7px;
-      line-height: 30px;
-      border-radius: 4px;
-      border: 1px solid #0099e8;
-      text-align: center;
-      color: #0099e8;
-      font-size: 14px;
+      a.main-header__btn {
+        background-color: $red;
+        text-align: center;
+        padding: 7px;
+        border-radius: 4px;
+        border: 1px solid $red;
+        color: $white;
+      }
+      a.main-header__signup {
+        text-align: center;
+        padding: 7px;
+        border-radius: 4px;
+        border: 1px solid $lightBlue;
+        color: $lightBlue;
+      }
     }
   }
 }

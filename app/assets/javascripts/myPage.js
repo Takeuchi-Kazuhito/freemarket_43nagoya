@@ -13,12 +13,12 @@ var purchased_display = $('.myPage__content__bottom__container__tab__purchased--
 
   $(".myPage__sideBar__myList--events").on("mouseover", function(){
     $(this).css("background-color","#fafafa");
-    $(this).children(".sideBar-icon").css("color", "black");
-    $(this).children(".sideBar-icon").css("transform", "translateX(3px)");
+    $(this).find(".sideBar-icon").css("color", "black");
+    $(this).find(".sideBar-icon").css("transform", "translateX(3px)");
   }).on("mouseout", function(){
     $(this).css("background-color","#fff");
-    $(this).children(".sideBar-icon").css("color", "#ccc");
-    $(this).children(".sideBar-icon").css("transform", "translateX(0px)");
+    $(this).find(".sideBar-icon").css("color", "#ccc");
+    $(this).find(".sideBar-icon").css("transform", "translateX(0px)");
   });
 
 //main

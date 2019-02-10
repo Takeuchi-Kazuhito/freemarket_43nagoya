@@ -1,0 +1,115 @@
+%main.user-info
+  %section.user-info-section
+    %h2 本人情報の登録
+    .user-info-section-attenction お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+    .user-info-section__form
+      = form_for @user, url: { controller: :identifications, action: :update }, class: "user-info-section__form-content" do |f|
+        .user-info-section__form-content-group
+          = f.label :family_name do
+            お名前
+          %span.required 必須
+          = f.text_field :family_name, placeholder: "例）山田"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:family_name).each do |msg|
+                %li
+                  = msg
+          = f.text_field :first_name, placeholder: "例）彩"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:first_name).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :family_katakana do
+            お名前カナ
+          %span.required 必須
+          = f.text_field :family_katakana, placeholder: "例）ヤマダ"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:family_katakana).each do |msg|
+                %li
+                  = msg
+          = f.text_field :first_katakana, placeholder: "例）アヤ"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:first_katakana).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :postal_code do
+            郵便番号
+          %span.any 任意
+          = f.text_field :postal_code, placeholder: "例）123-4567"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:postal_code).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :domicile_pref do
+            都道府県
+          %span.required 必須
+          = f.collection_select :domicile_pref, JpPrefecture::Prefecture.all, :name, :name, prompt: "--"
+          %i
+          / アイコンを追加すること
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:domicile_pref).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :domicile_city do
+            市区町村
+          %span.required 必須
+          = f.text_field :domicile_city, placeholder: "例）横浜市緑区"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:domicile_city).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :domicile_add do
+            番地
+          %span.required 必須
+          = f.text_field :domicile_add, placeholder: "例）青山1-1-1"
+          - if @user.errors.any?
+            %ul.error_msg
+              - @user.errors.full_messages_for(:domicile_add).each do |msg|
+                %li
+                  = msg
+        .user-info-section__form-content-group
+          = f.label :building do
+            建物名
+          %span.any 任意
+          = f.text_field :building, placeholder: "例）柳ビル103"
+        .user-info-section__form-content-group
+          = f.label :birthday_year do
+            生年月日
+          %span.required 必須
+        .user-info-section__form-content-group-wrap
+          = f.select :birthday_year, options_for_select(1900..Time.now.year), prompt: "--"
+        %span 年
+        .user-info-section__form-content-group-wrap
+          = f.select :birthday_month, options_for_select(1..12), prompt: "--"
+        %span 月
+        .user-info-section__form-content-group-wrap
+          = f.select :birthday_day, options_for_select(1..31), prompt: "--"
+        %span 日
+        - if @user.errors.any?
+          %ul.error_msg
+            - @user.errors.full_messages_for(:birthday_year).each do |msg|
+              %li
+                = msg
+        - if @user.errors.any?
+          %ul.error_msg
+            - @user.errors.full_messages_for(:birthday_month).each do |msg|
+              %li
+                = msg
+        - if @user.errors.any?
+          %ul.error_msg
+            - @user.errors.full_messages_for(:birthday_day).each do |msg|
+              %li
+                = msg
+        %p.user-info-section__form-content-group-text ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        = f.submit '登録する', class: "user-info-section__form-content-submit"

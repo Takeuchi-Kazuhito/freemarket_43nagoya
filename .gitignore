@@ -21,3 +21,5 @@ public/uploads/*
 config/secrets.yml
 
 app/assets/images
+
+db/seeds.rb

@@ -1,0 +1,13 @@
+= render "/shared/header"
+
+.main
+  .main-content
+    .item-exhibitor
+      %section.item-exhibitor__item-box
+        %h2.product-list
+          商品一覧
+        .item-exhibitor__item-box-content.clearfix
+          = render @products
+      = paginate @products
+
+= render "/shared/footer"

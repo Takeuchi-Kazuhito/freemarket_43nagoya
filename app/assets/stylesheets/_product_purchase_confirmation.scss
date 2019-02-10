@@ -132,6 +132,10 @@ main {
   display: block;
   text-align: right;
   color: #0099e8;
+  &__right {
+  margin-left: 4px;
+  font-size: 18px !important;
+  }
 }
 
 .payment-info {
@@ -181,9 +185,4 @@ footer {
 .copy-right {
   margin-top:  8px;
   font-size: 12px;
-}
-
-.fa-angle-right {
-  margin-left: 4px;
-  font-size: 18px !important;
 }
