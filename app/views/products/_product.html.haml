@@ -1,6 +1,6 @@
 %section.item-exhibitor__item-box-content--box
   = link_to product_path(product) do
-    = image_tag "https://mcdn.mercariapp.com/thumb/photos/m68337163107_1.jpg?1545590936"
+    = image_tag product.image
     .item-exhibitor__item-box-content--box-body
       %h3
         = product.name

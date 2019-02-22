@@ -2,10 +2,17 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, user-scalable=no"}
     %title Freemarket43nagoya
+    = favicon_link_tag('favicon.ico')
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.7.1/css/all.css", integrity: "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin: "anonymous"}
+    -# カスタムフォーム用
+    -# %script{type: "text/javascript", src: "https://js.pay.jp/"}
+    -# %script{type: "text/javascript"}
+    -#   Payjp.setPublicKey(ENV["PAYJP_SECRET_KEY"]);
   %body
-    = yield
+    .wrap
+      = yield

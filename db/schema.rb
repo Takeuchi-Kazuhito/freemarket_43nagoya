@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190205074519) do
+ActiveRecord::Schema.define(version: 20190213074417) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             null: false
@@ -25,22 +25,36 @@ ActiveRecord::Schema.define(version: 20190205074519) do
     t.integer  "seller_id",                        null: false
     t.integer  "buyer_id"
     t.integer  "shipping_burden",                  null: false
+    t.string   "image",                            null: false
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "password"
+    t.string   "image"
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "family_name",                                       null: false
-    t.string   "first_name",                                        null: false
-    t.string   "family_katakana",                                   null: false
-    t.string   "first_katakana",                                    null: false
+    t.string   "family_name",                          default: "", null: false
+    t.string   "first_name",                           default: "", null: false
+    t.string   "family_katakana",                      default: "", null: false
+    t.string   "first_katakana",                       default: "", null: false
     t.string   "postal_code"
-    t.string   "domicile_pref",                                     null: false
-    t.string   "domicile_city",                                     null: false
-    t.string   "domicile_add",                                      null: false
+    t.string   "domicile_pref",                        default: "", null: false
+    t.string   "domicile_city",                        default: "", null: false
+    t.string   "domicile_add",                         default: "", null: false
     t.string   "building"
-    t.string   "phone_number",                                      null: false
+    t.string   "phone_number",                         default: "", null: false
     t.text     "profile",                limit: 65535
     t.string   "nickname",                                          null: false
     t.string   "email",                                default: "", null: false
@@ -53,10 +67,12 @@ ActiveRecord::Schema.define(version: 20190205074519) do
     t.integer  "birthday_year"
     t.integer  "birthday_month"
     t.integer  "birthday_day"
+    t.string   "image"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
+  add_foreign_key "sns_credentials", "users"
 end

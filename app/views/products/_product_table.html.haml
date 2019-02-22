@@ -1,0 +1,44 @@
+%tbody
+  %tr
+    %th 出品者
+    %td
+      = link_to user_profile_path(@product.seller) do
+        = @product.seller.nickname
+      %div
+        .item-container__main-table-rating
+          %i.fas.fa-laugh.item-container__main-table-rating-good
+          %span 0
+        .item-container__main-table-rating
+          %i.fas.fa-meh.item-container__main-table-rating-normal
+          %span 0
+        .item-container__main-table-rating
+          %i.fas.fa-frown.item-container__main-table-rating-bad
+          %span 0
+  %tr
+    %th カテゴリー
+    %td.item-container__main-table-category
+      = link_to "" do
+        %div
+          仮カテゴリー
+  %tr
+    %th ブランド
+    %td
+      = link_to "" do
+        %div
+  %tr
+    %th 商品の状態
+    %td= @product.status_i18n
+  %tr
+    %th 発送料の負担
+    %td= @product.shipping_burden_i18n
+  %tr
+    %th 配送の方法
+    %td= @product.shipping_method_i18n
+  %tr
+    %th 配送元地域
+    %td
+      = link_to "" do
+        = @product.region
+  %tr
+    %th 発送日の目安
+    %td= @product.shipping_timetable_i18n

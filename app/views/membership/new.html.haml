@@ -1,0 +1,61 @@
+.container
+  %header.header
+    %h1
+      = link_to root_path do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2777205881"
+    %nav.header-progress
+      %ol
+        %li.active
+          会員情報
+          .header-progress-bar-top
+        %li
+          電話番号認証
+          .header-progress-bar
+        %li
+          住所入力
+          .header-progress-bar
+        %li
+          支払い方法
+          .header-progress-bar
+        %li
+          完了
+          .header-progress-bar-end
+  %main.main
+    %section.main-section
+      %h2 会員情報入力
+      = form_for resource,html: {class: 'main-section__form'}, url: membership_new_path do |f|
+        .main-section__form-content
+          .main-section__form-content-group
+            = f.label :ニックネーム
+            %span 必須
+            = f.text_field :nickname, placeholder: "例）メルカリ太郎"
+            - resource.errors.full_messages_for(:nickname).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :メールアドレス
+            %span 必須
+            = f.text_field :email, placeholder: "PC・携帯どちらでも可"
+            - resource.errors.full_messages_for(:email).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :パスワード
+            %span 必須
+            = f.password_field :password, placeholder: "6文字以上"
+            - resource.errors.full_messages_for(:password).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :パスワード（確認）
+            %span 必須
+            = f.password_field :password_confirmation, placeholder: "6文字以上"
+            - resource.errors.full_messages_for(:password_confirmation).each do |message|
+              .validation-error-mesage
+                = message
+            = flash[:recaptcha_error]
+            = recaptcha_tags
+          .main-section__form-content-group
+          = f.submit '次へ進む', class: 'main-section__form-content-submit'
+
+  = render "/logo/footer"

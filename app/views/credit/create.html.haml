@@ -1,0 +1,35 @@
+.container
+  %header.header
+    %h1
+      = link_to root_path do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3708647559"
+    %nav.header-progress
+      %ol
+        %li
+          会員情報
+          .header-progress-bar-top.completed
+        %li
+          電話番号認証
+          .header-progress-bar.completed
+        %li
+          住所入力
+          .header-progress-bar.completed
+        %li
+          支払い方法
+          .header-progress-bar.completed
+        %li.completed
+          完了
+          .header-progress-bar-end.completed
+  %main.main
+    %section.main-section
+      %h2 会員登録完了
+      %form.main-section__form{"accept-charset" => "utf-8", :action => "", :method => ""}
+        .main-section__form-content.thanks
+          .main-section__form-content-group
+            %p
+              ありがとうございます。
+              %br/
+              会員登録が完了しました。
+          = link_to root_path do
+            %button.main-section__form-content-submit{:type => "submit"} メルカリをはじめる
+  = render "/logo/footer"

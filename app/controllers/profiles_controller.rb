@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def edit
   end
@@ -10,6 +11,10 @@ class ProfilesController < ApplicationController
     else
       render action: :edit
     end
+  end
+
+  def show
+    @products = @user.selling_products.sort_new_id.page(params[:page]).per(6)
   end
 
   private

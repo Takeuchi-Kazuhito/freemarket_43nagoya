@@ -1,7 +1,9 @@
 = render "/shared/header"
+- breadcrumb :logout
+= render "./bread_crumb"
 
-.myPage
-  = render "/shared/sideBar"
+.myPage.clearfix
   = render "logout"
+  = render "/shared/sideBar"
 
 = render "/shared/footer"

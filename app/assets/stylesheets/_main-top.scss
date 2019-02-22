@@ -1,34 +1,100 @@
 .main-top {
   height: 390px;
   position: relative;
-  bottom: 48px;
-  margin-bottom: -48px;
-  background-color: #F3FFD8;
-
+  @include background_footer_main-top;
+  @include max-screen($lg) {
+    height: 290px;
+  }
+  @include max-screen($sm) {
+    height: 200px;
+  }
   &__content {
     height: 100%;
     max-width: 860px;
     margin: 0 auto;
+    position: relative;
+    @include max-screen($lg) {
+      max-width: 730px;
+    }
+    @include max-screen($sm) {
+      max-width: 510px;
+    }
+    @include max-screen($xs) {
+      min-width: 330px;
+    }
     &__box {
-      width: 480px;
-      padding: 50px 0;
+      height: 100%;
+      padding: 40px 0;
+      @include max-screen($lg) {
+        padding: 35px;
+      }
+      @include max-screen($sm) {
+        padding: 20px;
+      }
+      @include max-screen($xs) {
+        padding: 10px;
+      }
       h2 {
         font-size: 60px;
         font-weight: bold;
         line-height: 1.2;
+        @include max-screen($lg) {
+          font-size: 40px;
+        }
+        @include max-screen($sm) {
+          font-size: 22px;
+        }
+        @include max-screen($sm) {
+          margin-top: 12px;
+        }
       }
       p.top-text {
         font-size: 18px;
         line-height: 2;
-        padding: 20px 0 0;
+        @include max-screen($lg) {
+          margin: 16px 0 0;
+          font-size: 16px;
+          line-height: 1.77778;
+        }
+        @include max-screen($sm) {
+          margin: 12px 0 0;
+          font-size: 12px;
+          line-height: 1.77778;
+        }
+        @include max-screen($xs) {
+          display: none;
+        }
       }
       .main-top__store {
         margin: 24px 0 0;
+          @include max-screen($sm) {
+            margin: 10px 0 0;
+          }
+          @include max-screen($xs) {
+            margin: 50px 0 0;
+          }
         a.left-link {
-
+          display: inline-block;
+          &:hover {
+            opacity: 0.7;
+          }
+          img {
+            @include max-screen($sm) {
+              width: 70px;
+            }
+          }
         }
         a.right-link {
-          margin: 0 0 0 8px;
+          display: inline-block;
+          margin: 0 0 0 5px;
+          &:hover {
+            opacity: 0.7;
+          }
+          img {
+            @include max-screen($sm) {
+              width: 70px;
+            }
+          }
         }
       }
       img.main-top__image {
@@ -36,7 +102,8 @@
         width: auto;
         position: absolute;
         top: 0;
-        left: 700px;
+        right: 0;
+        z-index: 1;
       }
     }
   }

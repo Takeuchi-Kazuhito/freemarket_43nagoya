@@ -44,7 +44,7 @@ GEM
     bcrypt (3.1.12)
     bindex (0.5.0)
     builder (3.2.3)
-    byebug (10.0.2)
+    byebug (11.0.0)
     capistrano (3.11.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -80,7 +80,16 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (1.0.0)
+      devise (> 3.5.2, < 4.6)
+      rails (>= 4.2.0, < 6)
     diff-lcs (1.3)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
+    dropzonejs-rails (0.8.4)
+      rails (> 3.1)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -91,8 +100,10 @@ GEM
     factory_girl_rails (4.9.0)
       factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
-    faker (1.9.1)
+    faker (1.9.3)
       i18n (>= 0.7)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     fog-aws (3.3.0)
       fog-core (~> 2.1)
@@ -115,6 +126,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -124,11 +137,14 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    hashie (3.6.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
@@ -140,6 +156,8 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    json (2.1.0)
+    jwt (2.1.0)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -161,14 +179,37 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     mysql2 (0.4.10)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
+    netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    oauth2 (1.4.1)
+      faraday (>= 0.8, < 0.16.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-facebook (5.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (0.6.0)
+      jwt (>= 2.0)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.5)
+    omniauth-oauth2 (1.6.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    payjp (0.0.6)
+      rest-client (~> 2.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -199,6 +240,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.0.7.1)
       actionpack (= 5.0.7.1)
       activesupport (= 5.0.7.1)
@@ -210,9 +254,15 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    recaptcha (4.13.1)
+      json
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -256,7 +306,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.18.0)
+    sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     temple (0.8.0)
@@ -270,6 +320,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -297,11 +350,15 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   devise
+  devise_token_auth
+  dropzonejs-rails
+  enum_help
   erb2haml
   factory_girl_rails
   faker
   fog-aws
   font-awesome-rails
+  gretel
   haml-rails
   jbuilder (~> 2.5)
   jp_prefecture
@@ -310,10 +367,16 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
+  omniauth
+  omniauth-facebook
+  omniauth-google-oauth2
+  payjp
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails-controller-testing
+  rails-i18n
+  recaptcha
   rspec-rails
   sass-rails (~> 5.0)
   spring

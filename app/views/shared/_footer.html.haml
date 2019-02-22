@@ -7,17 +7,21 @@
         今すぐ無料ダウンロード！
       .banner-icon
         %figure
-          %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?1966943736"}
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?1966943736"
         .store-link
           %a{href: ""}
-            %img.apple-link{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2777205881"}
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2777205881", class: "apple-link"
           %a{href: ""}
-            %img.google-link{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2777205881"}
-        %img.banner__image{src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1966943736"}
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2777205881", class: "google-link"
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1966943736", class: "banner__image"
 
 .footer
-  .footer__box
-    %ul
+  .footer__box.clearfix
+    %ul.clearfix
+      %li.footer-download-app
+        = link_to "" do
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2818705848"
+          今すぐ無料ダウンロード！
       %li.footer-cell
         %h3
           メルカリについて
@@ -55,7 +59,7 @@
           %li.list
             %a.link{href: ""}
               採用情報
-    %ul
+
       %li.footer-cell
         %h3
           メルカリを見る
@@ -78,7 +82,7 @@
           %li.list
             %a.link{href: ""}
               公式Facebook
-    %ul
+
       %li.footer-cell
         %h3
           ヘルプ＆ガイド
@@ -116,22 +120,25 @@
           %li.list
             %a.link{href: ""}
               メルカリボックス
-    %ul
+
       %li.footer-cell
         %h3
           国
         %ul.footer-list
+          %li.list.us
+            %a{href: ""}
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_us.png?1966943736", class: "country"
+              United States
+          %li.list.uk
+            %a{href: ""}
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_uk.png?1966943736", class: "country"
+              United Kingdom
           %li.list
-            %img.country{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_us.png?1966943736"}
-            United States
-          %li.list
-            %img.country{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_uk.png?1966943736"}
-            United Kingdom
-          %li.list
-            %img.country{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_jp.png?1966943736"}
-            日本
-  %a.footer__logo{href: ""}
-    %img.footer__logo__img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?1966943736"}
+            %a{href: "/"}
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/flag_jp.png?1966943736", class: "country"
+              日本
+  %a.footer__logo{href: "/"}
+    = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?1966943736", class: "footer__logo__img"
   %p.footer__copyright
     © 2019 Mercari
 

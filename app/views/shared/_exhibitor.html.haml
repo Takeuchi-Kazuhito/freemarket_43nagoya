@@ -1,0 +1,118 @@
+.main__section__inner
+  %h3.main__section__inner__group__category
+    出品画像
+    %span.main__section__inner__group__category__attention 必須
+  %p 画像を1枚アップロードできます
+  = f.file_field :image
+  - if @product.errors.any?
+    %ul.error_msg
+      = @product.errors.messages[:image][0]
+
+.main__section__inner
+  .main__section__inner__group
+    %h3.main__section__inner__group__category
+      商品名
+      %span.main__section__inner__group__category__attention 必須
+    = f.text_field :name, class: "main__section__inner__group__textfield", placeholder: "商品名（必須 40文字まで)"
+    - if @product.errors.any?
+      %ul.error_msg
+        = @product.errors.messages[:name][0]
+  .main__section__inner__group
+    %h3.main__section__inner__group__category
+      商品の説明
+      %span.main__section__inner__group__category__attention 必須
+    = f.text_area :description, class: "main__section__inner__group__textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    - if @product.errors.any?
+      %ul.error_msg
+        = @product.errors.messages[:description][0]
+.main__section__inner.clearfix
+  %h3.main__section__inner__subCategory
+    商品詳細
+  .main__section__inner__form
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory
+        カテゴリー
+        %span.main__section__inner__form__group__subCategory__attention 必須
+      / = f.select :category, [["レディース", "レディース"], ["メンズ", "メンズ"], ["ベビー・キッズ", "ベビー・キッズ"], ["インテリア・住まい・小物", "インテリア・住まい・小物"], ["本・音楽・ゲーム", "本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ", "おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容", "コスメ・香水・美容"], ["家電・スマホ・カメラ", "家電・スマホ・カメラ"], ["スポーツ・レジャー", "スポーツ・レジャー"], ["ハンドメイド", "ハンドメイド"], ["チケット", "チケット"], ["自動車・オートバイ", "自動車・オートバイ"], ["その他", "その他"]], {include_blank: "---"}
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory
+        商品の状態
+        %span.main__section__inner__form__group__subCategory__attention 必須
+      = f.select :status, Product.statuses_i18n.invert, {include_blank: "---"}
+      - if @product.errors.any?
+        %ul.error_msg
+          = @product.errors.messages[:status][0]
+.main__section__inner.clearfix
+  %h3.main__section__inner__subCategory
+    配送料について
+  .main__section__inner__form
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory
+        配送料の負担
+        %span.main__section__inner__form__group__subCategory__attention 必須
+      = f.select :shipping_burden, Product.shipping_burdens_i18n.invert, {include_blank: "---"}, {class: "selectburden"}
+      - if @product.errors.any?
+        %ul.error_msg
+          = @product.errors.messages[:shipping_burden][0]
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory__hidden
+        配送の方法
+        %span.main__section__inner__form__group__subCategory__attention__hidden 必須
+      = f.select :shipping_method, Product.shipping_methods_i18n.invert, {include_blank: "---"}, {class: "selectmethod-1"}
+      - if @product.errors.any?
+        %ul#hidden.error_msg
+          = @product.errors.messages[:shipping_method][0]
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory
+        発送元の地域
+        %span.main__section__inner__form__group__subCategory__attention 必須
+      = f.collection_select :region, JpPrefecture::Prefecture.all, :name, :name, prompt: "---"
+      - if @product.errors.any?
+        %ul.error_msg
+          = @product.errors.messages[:region][0]
+    .main__section__inner__form__group
+      %h3.main__section__inner__form__group__subCategory
+        発送までの日数
+        %span.main__section__inner__form__group__subCategory__attention 必須
+      = f.select :shipping_timetable, Product.shipping_timetables_i18n.invert, {include_blank: "---"}
+      - if @product.errors.any?
+        %ul.error_msg
+          = @product.errors.messages[:shipping_timetable][0]
+.main__section__inner.clearfix
+  %h3.main__section__inner__subCategory
+    販売価格(300〜9,999,999)
+  .main__section__inner__form
+    .main__section__inner__form__group.clearfix
+      .main__section__inner__form__group__left
+        %h3.main__section__inner__form__group__left__subCategory
+          価格
+          %span.main__section__inner__form__group__left__subCategory__attention 必須
+      .main__section__inner__form__group__right
+        ¥
+        = f.text_field :price, placeholder: "例) 300", class: "main__section__inner__form__group__right__price", id: "sell-price"
+        - if @product.errors.any?
+          %ul.error_msg_price
+            = @product.errors.messages[:price][0]
+  .main__section__inner__form
+    .main__section__inner__form__commission
+      .main__section__inner__form__commission__label
+        販売手数料(10%)
+        #commission.main__section__inner__form__commission__label__number -
+    .main__section__inner__form__profits
+      .main__section__inner__form__profits__label
+        販売利益
+      #profits.main__section__inner__form__profits__number -
+- if request.path_info == new_product_path
+  .main__section__inner.clearfix
+    %p
+      禁止されている出品、行為を必ずご確認ください。
+    %p
+      またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+    %p
+      また、出品をもちまして加盟店規約に同意したことになります。
+    = f.submit "出品する", class: "button"
+    = link_to "もどる", :back, {class: "back"}
+- else
+  .main__section__inner.clearfix
+    = f.submit "変更する", class: "button"
+    = link_to "キャンセル", :back, {class: "back"}

@@ -1,0 +1,47 @@
+%section.profile-container
+  .profile-container-box
+    .profile-container-box-center
+      = link_to "" do
+        .profile-container-box-center-icon
+          .profile-container-box-center-icon-image
+            = image_tag @user.image if @user.image
+          %h2= @user.nickname
+      .profile-container-box-center-score
+        %span 評価 0
+        %span 出品数 0
+  .profile-container-main
+    .profile-container-main-ratings
+      .profile-container-main-ratings-box.clearfix
+        .profile-container-main-ratings-box-left
+          %i.fas.fa-laugh
+          .profile-container-main-ratings-box-left-score 0
+      .profile-container-main-ratings-box.clearfix
+        .profile-container-main-ratings-box-center
+          %i.fas.fa-meh
+          .profile-container-main-ratings-box-center-score 0
+      .profile-container-main-ratings-box.clearfix
+        .profile-container-main-ratings-box-right
+          %i.fas.fa-frown
+          .profile-container-main-ratings-box-right-score 0
+    .profile-container-main-description
+      %p
+        = @user.profile
+  .item-social-media-box
+    %ul
+      %li
+        = link_to "" do
+          %i.fab.fa-facebook.item-social-media-box-facebook
+      %li
+        = link_to "" do
+          %i.fab.fa-twitter.item-social-media-box-twetter
+      %li
+        = link_to "" do
+          %i.fab.fa-line.item-social-media-box-line
+.item-exhibitor
+  %section.item-exhibitor__item-box
+    %h2.exhibitor_products
+      = link_to "" do
+        この出品者の商品
+    .item-exhibitor__item-box-content.clearfix
+      = render @products
+    = paginate @products

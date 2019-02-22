@@ -1,0 +1,21 @@
+.container
+  = render 'logo/header'
+  %main.main
+    %section.main-section
+      %h2 新規会員登録
+      .main-section-inner
+        .main-section-inner-container
+          = link_to membership_new_path do
+            .main-section-inner-container-mail
+              %i>
+              メールアドレスで登録
+          = link_to user_facebook_omniauth_authorize_path do
+            %button#facebook-login.main-section-inner-container-facebook.login-panel__sns-facebook
+              %i.fab.fa-facebook
+              Facebookで登録
+          = link_to user_google_omniauth_authorize_path do
+            %button#google-login.main-section-inner-container-google.login-panel__sns-google
+              %i.fab.fa-google
+              Googleで登録
+
+  = render 'logo/footer'

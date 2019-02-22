@@ -9,6 +9,26 @@ a.all-item-link {
   color: #0099e8;
   float: right;
   padding: 0 0 20px 0;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+}
+
+.edit-container {
+  width: 700px;
+  padding: 40px;
+  background: #fff;
+  margin: 40px auto;
+  @include max-screen($sm) {
+    width: 100%;
+    padding: 30px 16px;
+  }
+  &__or {
+    font-size: 15px;
+    text-align: center;
+    margin: 15px;
+  }
 }
 
 .item-exhibitor {
@@ -82,31 +102,29 @@ a.all-item-link {
               margin: 0;
               padding: 0;
             }
-          &-bottom {
-            margin: 8px 0 0;
-            &-price {
-              font-size: 20px;
-              float: left;
+            &-bottom {
+              margin: 8px 0 0;
+              &-price {
+                font-size: 20px;
+                float: left;
+              }
+              &-like {
+                float: right;
+                font-size: 16px;
+                font-weight: 400;
+                color: #333;
+              }
+              p {
+                font-size: 10px;
+                clear: both;
+                margin: 0;
+                padding: 0;
+              }
             }
-            &-like {
-              float: right;
-              font-size: 16px;
-              font-weight: 400;
-              color: #333;
-            }
-            p {
-              font-size: 10px;
-              clear: both;
-              margin: 0;
-              padding: 0;
-            }
-          }
-
           }
         }
       }
     }
   }
 }
-
 

@@ -1,0 +1,68 @@
+#item-container
+  - unless @product.buyer_id
+    = link_to "購入画面に進む", purchase_path(@product.id), { class: "item-container__buy" }
+  - else
+    .item-container__sold
+      売り切れました
+  %table.item-container__main-table_sm
+    = render "product_table"
+  .item-container__price_sm
+    %span.item-container__price-price= price_format(@product.price)
+    %span.item-container__price-tax (税込)
+    %span.item-container__price-fee
+      = @product.shipping_burden == "送料込み（出品者負担）" ? "送料込み" : "着払い"
+  - unless @product.buyer_id
+    = link_to "購入画面に進む",  purchase_path(@product.id), { class: "item-container__buy_sm" }
+  - else
+    .item-container__sold_sm
+      売り切れました
+  .item-container__description
+    %p= @product.description
+  .item-container__button.clearfix
+    .item-container__button-left
+      = link_to "", { class: "item-container__button-left-like" } do
+        %i
+        %span いいね！
+        %span{"data-num" => "like"}
+      = link_to "", { class: "item-container__button-left-report" } do
+        %i
+        %span 不適切な商品の報告
+    .item-container__button-right
+      = link_to "" do
+        %i
+        %span あんしん・あんぜんへの取り組み
+    .item-container__description
+%ul.item-link.clearfix
+  %li.item-link-prev
+    - if @product.prev_id
+      = link_to product_path(@product.prev_id) do
+        %i.fas.fa-chevron-left.item-link__angle
+        = @product.prev_id.name
+  %li.item-link-next
+    - if @product.next_id
+      = link_to product_path(@product.next_id) do
+        = @product.next_id.name
+        %i.fas.fa-chevron-right.item-link__angle
+.item-social-media-box
+  %ul
+    %li
+      = link_to "" do
+        %i.fab.fa-facebook.item-social-media-box-facebook
+    %li
+      = link_to "" do
+        %i.fab.fa-twitter.item-social-media-box-twetter
+    %li
+      = link_to "" do
+        %i.fab.fa-line.item-social-media-box-line
+    %li
+      = link_to "" do
+        %i.fab.fa-pinterest.item-social-media-box-pinterest
+.item-exhibitor
+  %section.item-exhibitor__item-box
+    %h2
+      = link_to user_profile_path(@product.seller) do
+        = "#{@product.seller.nickname}さんのその他の出品"
+    .item-exhibitor__item-box-content.clearfix
+      = render @products
+  %section.item-exhibitor__item-box
+

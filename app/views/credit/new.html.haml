@@ -1,0 +1,71 @@
+.container
+  %header.header
+    %h1
+      = link_to root_path do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3708647559"
+    %nav.header-progress
+      %ol
+        %li
+          会員情報
+          .header-progress-bar-top.completed
+        %li
+          電話番号認証
+          .header-progress-bar.completed
+        %li
+          住所入力
+          .header-progress-bar.completed
+        %li.active
+          支払い方法
+          .header-progress-bar.active
+        %li
+          完了
+          .header-progress-bar-end
+  %main.main
+    - resource.errors.full_messages.each do |message|
+      = message
+    = devise_error_messages!
+    %section.main-section
+      %h2 支払い方法
+      = form_for resource, html: {class: 'main-section__form'}, url: credit_create_path do |f|
+        .main-section__form-content.credit-card
+          -# チェックアウト用
+          :plain
+            <form action="/pay" method="post">
+              <script src="https://checkout.pay.jp/" class="payjp-button" data-partial="true" data-key="pk_test_151a572b8d3fa7128c93f82a"></script>
+            </form>
+          -# カスタムフォーム用
+          -# .main-section__form-content-group
+          -#   = label_tag :カード番号
+          -#   %span 必須
+          -#   = text_field_tag "number", "", placeholder: "半角数字のみ", class: "number"
+          -# .main-section__form-content-card
+          -#   %ul
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2540802024", width: "49"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2540802024", width: "34"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2540802024", width: "30"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2540802024", width: "32"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2540802024", width: "21"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2540802024", width: "32"
+          -#     %li
+          -#       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2540802024", width: "32"
+          -# .main-section__form-content-group
+          -#   = label_tag :有効期限
+          -#   %span 必須
+          -#   = select_tag "exp_month", options_for_select(1..12), class: "month-year exp_month"
+          -#   %i
+          -#   = select_tag "exp_year", options_for_select((Time.now.year - 2000 )..(Time.now.year - 1990)), class: "month-year exp_year"
+          -#   %i
+          -# .main-section__form-content-group
+          -#   = label_tag :セキュリティーコード
+          -#   %span 必須
+          -#   = text_field_tag "cvc", "", placeholder: "カード背面4桁もしくは3桁の番号", class: "cvc"
+          .main-section__form-content-group
+          = f.submit '次へ進む', class: 'main-section__form-content-submit'
+
+  = render "/logo/footer"

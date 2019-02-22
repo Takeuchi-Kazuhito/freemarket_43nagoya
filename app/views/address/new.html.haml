@@ -1,0 +1,89 @@
+.container
+  %header.header
+    %h1
+      = link_to root_path do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3708647559"
+    %nav.header-progress
+      %ol
+        %li
+          会員情報
+          .header-progress-bar-top.completed
+        %li
+          電話番号認証
+          .header-progress-bar.completed
+        %li.active
+          住所入力
+          .header-progress-bar.active
+        %li
+          支払い方法
+          .header-progress-bar
+        %li
+          完了
+          .header-progress-bar-end
+  %main.main
+    %section.main-section
+      %h2 住所入力
+      = form_for resource,html: {class: 'main-section__form'}, url: address_new_path do |f|
+        .main-section__form-content-address
+          .main-section__form-content-group
+            = f.label :お名前
+            %span 必須
+            = f.text_field :family_name, placeholder: "例）山田"
+            - resource.errors.full_messages_for(:family_name).each do |message|
+              .validation-error-mesage
+                = message
+            = f.text_field :first_name, placeholder: "例）彩"
+            - resource.errors.full_messages_for(:first_name).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :お名前カナ
+            %span 必須
+            = f.text_field :family_katakana, placeholder: "例）ヤマダ"
+            - resource.errors.full_messages_for(:family_katakana).each do |message|
+              .validation-error-mesage
+                = message
+            = f.text_field :first_katakana, placeholder: "例）アヤ"
+            - resource.errors.full_messages_for(:first_katakana).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :郵便番号
+            %span 必須
+            = f.text_field :postal_code, placeholder: "例）123-4567"
+            - resource.errors.full_messages_for(:postal_code).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :都道府県
+            %span 必須
+            = f.collection_select :domicile_pref, JpPrefecture::Prefecture.all, :name, :name, prompt: "--"
+            - resource.errors.full_messages_for(:domicile_pref).each do |message|
+              .validation-error-mesage
+                = message
+            %i
+          .main-section__form-content-group
+            = f.label :市区町村
+            %span 必須
+            = f.text_field :domicile_city, placeholder: "例）横浜市緑区"
+            - resource.errors.full_messages_for(:domicile_city).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :番地
+            %span 必須
+            = f.text_field :domicile_add, placeholder: "例）青山1-1-1"
+            - resource.errors.full_messages_for(:domicile_add).each do |message|
+              .validation-error-mesage
+                = message
+          .main-section__form-content-group
+            = f.label :建物名
+            %span.any 任意
+            = f.text_field :building, placeholder: "例）柳ビル103"
+          .main-section__form-content-group
+            = f.label :電話番号
+            %span.any 任意
+            = f.text_field :phone_number, placeholder: "例）09012345678"
+          = f.submit '次へ進む', class: 'main-section__form-content-submit'
+
+  = render "/logo/footer"

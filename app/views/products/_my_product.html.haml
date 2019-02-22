@@ -1,0 +1,20 @@
+#item-container
+  .item-container__description
+    %p= @product.description
+
+.edit-container
+  = link_to "商品の編集", edit_product_path(@product), { class: "item-container__edit" }
+  %a.item-container__delete この商品を削除する
+
+.overlay
+  #modalwin.modalwin-hide
+    %h1.delete
+      確認
+    %p.delete__text
+      削除すると二度と復活できません。
+    %p.delete__text__confirm
+      本当に削除しますか？
+    .cancel__btn
+      = link_to "キャンセル", product_path, {class: "cancel__btn__back"}
+    .delete__btn
+      = link_to "削除する", product_path(params[:id]), class: "delete__btn__confirm", method: :delete

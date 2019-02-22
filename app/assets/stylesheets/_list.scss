@@ -16,6 +16,7 @@
     font-size: 14px;
     line-height: 42px;
     a {
+      display: block;
       color: #333;
     }
     a:visited {
@@ -36,6 +37,9 @@
     font-size: 14px;
     line-height: 42px;
     float: left;
+    a {
+      display: block;
+    }
   }
   &__right-cell {
     display: inline-block;
@@ -47,6 +51,9 @@
     font-size: 14px;
     line-height: 42px;
     float: right;
+    a {
+      display: block;
+    }
   }
   &__angle {
     color: #333;

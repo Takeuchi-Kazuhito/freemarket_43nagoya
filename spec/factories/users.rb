@@ -1,16 +1,17 @@
 FactoryGirl.define do
   factory :user do
-    family_name     Faker::Name.last_name
-    first_name      Faker::Name.first_name
-    family_katakana Faker::Name.last_name
-    first_katakana  Faker::Name.first_name
-    domicile_pref   Faker::Address.state
-    domicile_city   Faker::Address.state
-    domicile_add    Faker::Address.state
-    birthday        "1000-01-01"
-    phone_number    "00000000000"
-    nickname        Faker::Artist.name
+    nickname              "test"
     sequence(:email) { Faker::Internet.email }
-    password        "password"
+    password              "00000000"
+    phone_number          "00000000000"
+    family_name           "てすと"
+    first_name            "てすと"
+    family_katakana       "テスト"
+    first_katakana        "テスト"
+    postal_code           "000-0000"
+    domicile_pref         "愛知県"
+    domicile_city         "テスト市"
+    domicile_add          "100丁目"
+    building              "テストアパート101"
   end
 end

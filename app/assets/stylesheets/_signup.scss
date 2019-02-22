@@ -1,37 +1,28 @@
-* {
-    box-sizing: border-box;
-}
-
-.clearfix::after{
-  content: "";
-  display: block;
-  clear: both;
-}
-
-body {
-  min-height: 100%;
-  background: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 14px;
-  color: #333;
-  line-height: 1;
-}
-
 .container {
   padding: 0 0 220px;
   .header{
     text-align: center;
     height: 128px;
     width: 100%;
+    @include max-screen($sm) {
+      height: auto;
+    }
     h1 {
       margin: 40px 0 0;
       display: inline-block;
+      @include max-screen($sm) {
+        margin: 11px 0 12px;
+      }
       a {
         width: 185px;
         height: 49px;
         img {
           width: 185px;
           height: 49px;
+          @include max-screen($sm) {
+            width: 120px;
+            height: 33px;
+          }
         }
       }
     }
@@ -41,6 +32,13 @@ body {
       display: inline-block;
       vertical-align: top;
       text-align: center;
+      @include max-screen($sm) {
+        padding: 16px 0;
+        border-top: 1px solid #eee;
+        display: block;
+        width: 92%;
+        margin: 0 auto;
+      }
       ol {
         margin: 0;
         padding: 0;
@@ -56,6 +54,9 @@ body {
           &:last-child {
             margin: 0;
           }
+          @include max-screen($sm) {
+            min-width: 30px;
+          }
         }
         li.active {
           font-weight: 600;
@@ -66,6 +67,9 @@ body {
           z-index: 1;
           display: inline-block;
           font-size: 12px;
+          @include max-screen($sm) {
+            min-width: 30px;
+          }
         }
         li.completed {
           font-weight: 600;
@@ -75,6 +79,9 @@ body {
           z-index: 1;
           display: inline-block;
           font-size: 12px;
+          @include max-screen($sm) {
+            min-width: 30px;
+          }
         }
       }
       &-bar-top {
@@ -272,20 +279,35 @@ body {
   }
   .main {
     display: block;
+    @include max-screen($sm) {
+      width: 100%;
+      margin: 0;
+    }
     &-section {
       width: 700px;
       margin: 0 auto;
       background: #fff;
+      @include max-screen($sm) {
+        width: 100%;
+        margin: 0;
+      }
       h2 {
         padding: 32px 16px;
         font-size: 22px;
         line-height: 1.5;
         text-align: center;
         margin: 0;
+        @include max-screen($sm) {
+          padding: 24px 8px;
+          font-size: 18px;
+        }
       }
       &-inner {
         padding: 64px;
         border-top: 1px solid #f5f5f5;
+        @include max-screen($sm) {
+          padding: 40px;
+        }
         &-container {
           max-width: 320px;
           margin: 0 auto;
@@ -386,6 +408,19 @@ body {
               line-height: 1.5;
               font-size: 16px;
             }
+            .field_with_errors{
+            input {
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid red;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+          }
             select {
               width: 100%;
               margin: 8px 0 0;
@@ -481,6 +516,10 @@ body {
     margin: 0 auto;
     padding: 40px 0;
     text-align: center;
+    @include max-screen($sm) {
+      width: 100%;
+      margin: 0;
+    }
     ul {
       margin: 0;
       padding: 0;
@@ -489,6 +528,10 @@ body {
         display: inline-block;
         margin: 0 0 0 16px;
         font-size: 12px;
+        @include max-screen($sm) {
+          display: block;
+          margin: 16px 0 0;
+        }
         a {
           display: block;
           color: #333;
@@ -511,4 +554,8 @@ body {
       }
     }
   }
+}
+.validation-error-mesage{
+  margin-top:10px;
+  color:red;
 }

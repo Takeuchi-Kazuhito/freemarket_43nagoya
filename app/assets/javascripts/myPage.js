@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
 var todo_show         = $('.myPage__content__top__container__todo__show')
 var notice_show       = $('.myPage__content__top__container__notice__show')

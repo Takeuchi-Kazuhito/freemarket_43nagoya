@@ -1,18 +1,37 @@
 ja:
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA認証に失敗しました。'
   views:
     pagination:
       first: <i class="fa fa-angle-double-left pagination__angle bold"></i>
       last: <i class="fa fa-angle-double-right pagination__angle bold"></i>
       previous: <i class="fa fa-angle-left pagination__angle bold"></i>
       next: <i class="fa fa-angle-right pagination__angle bold"></i>
-
   activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        phone_number: 電話番号
+        family_name: 姓
+        first_name: 名
+        family_katakana: 姓カナ
+        first_katakana: 名カナ
+        postal_code: 郵便番号
+        domicile_pref: 都道府県
+        domicile_city: 市区町村
+        domicile_add: 番地
+
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
   date:
     abbr_day_names:
     - 日

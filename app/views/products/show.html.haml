@@ -1,0 +1,33 @@
+= render "/shared/header"
+- breadcrumb :product,@product
+= render "./bread_crumb"
+
+%section.item-container
+  %h1= @product.name
+  .item-container__main.clearfix
+    .item-container__main-photo
+      .item-container__main-photo-main
+        = image_tag(@product.image)
+      .item-container__main-photo-bottom
+        .item-container__main-photo-bottom-ele
+          = image_tag("")
+        .item-container__main-photo-bottom-ele
+          = image_tag("")
+        .item-container__main-photo-bottom-ele
+          = image_tag("")
+        .item-container__main-photo-bottom-ele
+          = image_tag("")
+        .item-container__main-photo-bottom-ele
+          = image_tag("")
+    %table.item-container__main-table
+      = render "product_table"
+  .item-container__price
+    %span.item-container__price-price= price_format(@product.price)
+    %span.item-container__price-tax (税込)
+    %span.item-container__price-fee
+      = @product.shipping_burden == "送料込み（出品者負担）" ? "送料込み" : "着払い"
+- if user_signed_in? && current_user.id == @product.seller_id
+  = render "my_product"
+- else
+  = render "otheruser_product"
+= render "/shared/footer"
